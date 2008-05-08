@@ -1,5 +1,5 @@
 #labels Featured,Phase-Design,Phase-Implementation
-#pagename Архитектура движка
+#PageName Архитектура движка
 #summary Архитектура движка
 
 =Описание=
