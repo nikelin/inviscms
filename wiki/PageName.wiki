@@ -1,0 +1,78 @@
+#summary Архитектура движка
+
+= Introduction =
+
+В данной статье описываются основные подходы к организации внутренней
+архитектуры системы:
+0. Подход к структурной реализации движка
+1. Базисная единица движка системы - "Пакет"
+2. Организация и управление пакетами
+3. Подходы к расширяемости и обновлениям
+
+
+= Details =
+
+<h1>Структурная реализация движка</h1>
+
+Основная задача, которая ставилась на движок, во время его разработкм,
+заключалась в высоком уровне его гибкости и комфортности для разработчиков
+при портировании сторонних решений в систему. 
+В этом контексте очень высокий приоритет был отдан спецификации и стандартизации
+протоколов взаимодействия пакетов, а так же обеспечению пользоваля функциямя управления
+данными пакетами.
+
+Для лучшего понимая функционирования и структурной части движка стоит рассмотреть
+дерево каталого, из которых состоит базисный движок:
+
+-/
+ -- config.xml            ; Main kernel settings
+ -- install.php           ; System installation script
+ -- index.php             ; System startpoint
+ -- sl.php (PROPOUSED: admin.php)    ; Administration UI
+ -- upart.php             ; Client(foreign visitor) UI
+ -- dx.php                ; Ajax methods caller 
+ -- lib                   ; InvisCMS Engine   
+ -- core                  ; System branches
+     -- abstractions      ; Packages abstractions
+       -- defaultpackage    
+         -- def.php     
+     -- interfaces        ; Packages interfaces
+       -- defaultpackage
+         -- def.php
+     -- errors            ; Packages errors definitions
+       -- defaultpackage
+         -- def.php
+     -- packages          ; Packages mainclasses
+       -- defaultpackage
+         -- init.php (+)   ; File with baseclass implementation
+         -- config.xml (*) ; Some common configuration, which uses in package context (OPTIONAL)
+         -- info.xml (+)   ; Information about package
+         -- license.xml (*); File with license bode (OPTIONAL)
+     -- others (PROPOUSED: `libs`) ; Others librariries (NOT PACKAGES)
+       -- init.php         ; "Magic" script what provide linking of all packages
+       -- globals.php      ; Some basic helpful functions  
+   -- jscore               ; System javascript core
+     -- basecore           ; Base javascript core functions
+       -- jallib           ; JavascriptActiveLibraries root directory
+         -- defaultlib
+           -- functions.jal  ; JAL package implementation
+     -- thirdpart          ; Thirdpart javascript packages
+   -- skins                ; System templates and styles
+    -- default             
+      -- styles
+   -- temp                 ; Directory to save different temprorary informations and files
+     -- uploads            ; Uploaded by visitors files
+     -- logs               ; System events history
+     -- files              ; Files uploaded from administration part
+     -- backups            ; Backup of some system data (Example: Article changes hronology, clients base)
+   -- modules              ; Modules packages
+     -- admin              ; Admin-part modules
+       -- defaultmodule
+         -- actions        ; Actions for client-side events (what was excepted by POST)
+         -- forms          ; 
+           -- main.frm(+)  ; Module start-point
+         -- config.xml
+         -- info.xml
+         -- license.xml
+     -- client
+ 
