@@ -1,0 +1,15 @@
+.uform {background-color:#FFFFFF;color:#000000;width:50%;}
+.uform .legend{height:25px;font-weight:bold;text-align:center;background-color:#FFFFCF;font-size:20px;}
+.uform .row{clear:both;}
+.uform .row .col{font-weight:bold;font-size:14px;}
+.uform .row .label{font-size:17px;font-weight:bold;background-color:#EEEEEE;text-align:left;float:left;width:40%;}
+.uform .row .value{display:block;float:left;width:60%;}
+.uform .submit{text-align:center;background-color:#000000;}
+.form{margin:0;padding:0;width:80%;background-color:#EEEEEE;margin-left:8%;}
+    .form .legend{background-color:#FFFFDD;color:inherit;text-align:center;font-size:18px;font-weight:bold;}
+    .form .row{clear:both;padding:0;margin:0;margin-bottom:2px;border: 1px #FFFFFF ridge;}
+    .form .row .label{float:left;width:45%;margin:0;padding:0;height:20px;display:block;background-color:#FFFFFF;}
+	.form .row .submit{width:100%;text-align:center;background-color:#777777;color:#FFFFFF;font-weight:bold;font-size:15px;}
+	.form .row .label1{background-color:#777777;color:#FFFFFF;font-weight:bold;font-size:15px;}
+	.form .row .value{float:right;width:55%;margin:0;background-color:#FFFFFF;font-weight:bold;padding:0;display:block;}
+    .form .row .value input[type="text"], .form .row .value select{width:100%;}

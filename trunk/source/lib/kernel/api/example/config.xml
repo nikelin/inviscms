@@ -1,0 +1,34 @@
+<?xml version='1.0'?>
+<settings>
+	<api>
+		<name>example</name>
+		<description>Example API-server module</description>
+		<protocols>
+			<item access='all'>
+				<environment>
+					<item value='GET'/>
+					<item value='POST'/>
+				</environment>
+				<identifier>some_id</identifier>
+				<params>
+					<item name='arg_name' type='string' important='0'/>
+				</params>
+			</item>
+		</protocols>
+	</api>
+	<authority>
+		<company>InnoWeb Studio</company>
+		<author>Kirill Karpenko</author>
+		<version>1_RC5</version>
+		<pubdate>2008-02-25 08:00</pubdate>
+		<license>InnoWeb EULA</license>
+		<license_url>http://innoweb.org.ua/licences/eula.pdf</license_url>
+		<readme_url>http://innoweb.org.ua/documentation/futbolka_constructor.pdf</readme_url>
+		<reply_to>LoRd1990@gmail.com</reply_to>
+		<auth>
+			<innoweb_reg_code>0232DFS231</innoweb_reg_code>
+			<md5_hash_code>2121ddfaca3232cb2421dcfaca3232cb</md5_hash_code>
+		</auth>
+		<comment>None</comment>
+	</authority>
+</settings>

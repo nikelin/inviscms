@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inv:module xmlns:inv='http://innoweb.org.ua'>
+    <dir value='actions' main='1'/>
+    <dir value='forms' main='1'/>
+    <dir value='core' main='0'>
+	<struct>
+	    <dir main='1' value='packages'/>
+	    <dir main='0' value='abstractions'/>
+	    <dir main='0' value='others'/>
+	    <dir main='0' value='errors'/>
+	    <dir main='0' value='interfaces'/>
+	</struct>
+    </dir>
+    <file value='install.xml' main='0'/>
+    <file value='license.txt' main='1'/>
+    <file value='info.xml' main='1'/>
+    <file value='checksum.md5' main='1'/>
+</inv:module>

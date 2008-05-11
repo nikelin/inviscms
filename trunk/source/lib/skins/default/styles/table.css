@@ -1,0 +1,15 @@
+.table{width:100%;font-size:13px;font-family:Tahoma, Verdana, Geneva, Arial, Helvetica, sans-serif;clear:both;}
+.table .header{font-weight:bold;clear:both;}
+.table .header .row, .table .body .row{clear:both;width:100%;padding:0;margin:0;}
+.table .header .row .col, .table .body .row .col{float:left;width:auto;height:20px;border-right-width:0px;border-bottom-width:1px}
+.table .body {font-size:16px;text-align:left;clear:both;width:100%;}
+.table .body .row .col span{display:block;padding:0;margin:0;} 
+.dT{margin-bottom:20px;margin-top:5px;margin-left:35px;width:90%;background-color:#EEEEEE;}
+.dT ul{list-style:none;display:inline;}
+.dT ul li{display:inline;}
+.dT ul li button{width:25%;}
+.dT .header{clear:both;display:block;font-weight:bold;color:#FFFFFF;margin:0;width:100%;padding:0;background-color:#999999;}
+.dT .header .col{width:100px;background-color:#000000;color:#FFFFFF;border:1px #FFFFFF ridge;padding-top:2px;height:25px;float:left;width:15%;margin-right:2px;text-align:center;}
+.dT .body{clear:both;font-weight:bold;width:100%;}
+.dT .body .row{font-weight:normal;clear:both;}
+.dT .body .row .col{padding-top:2px;height:20px;color:#FFFFFF;background-color:#555555;float:left;width:145px;margin-right:2px;text-align:center;border:1px #FFFFFF dotted;}

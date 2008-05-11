@@ -1,0 +1,16 @@
+<?xml version='1.0'?>
+<data>
+	<title>Authorization module</title>
+	<description>
+		<lang value='ru'>
+			Данный модуль служит для авторизации администраторов в системе.
+		</lang>
+		<lang value='en'>
+			This module is provide system user authorization interface.
+		</lang>
+		<lang value='uk'>
+			Цей модуль є користувацьким інтерфейсом для авторизації адміністраторів у системі.
+		</lang>
+	</description>
+	<url>http://innoweb.org.ua/knowledges/modules/auth</url>
+</data>
