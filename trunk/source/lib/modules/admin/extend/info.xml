@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<inv:module xmlns:inv='http://innoweb.com.ua' id='extend' status='on'>
-		  <title>Расширение системы</title>
-			<actions>
-			         <action id='add'>Список модулей</action>
-		                 <action id='add'>Добавление нового</action>
-			</actions>
-		  <author>LoRd</author>
-</inv:module>
