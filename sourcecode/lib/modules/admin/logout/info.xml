@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<module xmlns:inv='http://innoweb.com.ua' id='languages' status='on'>
+		  <title>Словари</title>
+		  <actions>
+		  </actions>
+		  <author>LoRd</author>
+</module>
+

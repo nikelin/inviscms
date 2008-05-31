@@ -1,0 +1,51 @@
+head	1.1;
+access;
+symbols
+	install:1.1.0.2;
+locks; strict;
+comment	@# @;
+
+
+1.1
+date	2008.05.29.03.21.04;	author admin;	state dead;
+branches
+	1.1.2.1;
+next	;
+
+1.1.2.1
+date	2008.05.29.03.21.04;	author admin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@file .project was initially added on branch install.
+@
+text
+@@
+
+
+1.1.2.1
+log
+@RC1
+@
+text
+@a0 11
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>inviscms-install-manager</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+	</buildSpec>
+	<natures>
+	</natures>
+</projectDescription>
+@
+

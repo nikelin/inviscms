@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+				<info>
+				<status value='on'/>
+			    <authority>
+			    	<title>advertising</title>
+					<author>Kirill A. Karpenko</author>
+					<url></url>
+					<email></email>
+					<company>InnoWeb Studio</company>
+					<license>InnoWeb EULA</license>
+					<license_url>InnoWeb EULA</license_url>
+					<version>1.0.0</version>
+					<regcode>AF2FA-BDAFEC-5523F</regcode>
+					<pubdate></pubdate>
+					<reply_to>operator2231@innoweb.org.ua</reply_to>
+			    </authority>
+			    <dependencies>
+				<abstractions></abstractions>
+					<interfaces><item name='advertising'/></interfaces><errors></errors><extending><item name='database'/><item name='security'/></extending><libs></libs></dependencies>
+			</info>

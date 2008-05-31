@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<inv:module xmlns:inv='http://innoweb.com.ua' id='settings' status='on'>
+		  <title>Настройки</title>
+			<actions>
+			</actions>
+		  <author>LoRd</author>
+</inv:module>

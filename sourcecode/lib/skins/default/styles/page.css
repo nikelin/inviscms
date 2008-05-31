@@ -1,0 +1,5 @@
+.page{height:auto;width:100%;}
+.page .head .title{display:block;font-weight:bold;font-size:13px;}
+.page .head .mark{clear:both;}
+.page .head .mark .text{float:left;display:block;width:60%;text-align:left;}
+.page .head .mark .choose{float:right}

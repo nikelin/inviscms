@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<inv:module xmlns:inv='http://innoweb.com.ua' id='orders' status='off'>
+		  <title>Заказы</title>
+			<actions>
+			         <action id='add'>Список</action>
+			</actions>
+		  <author>LoRd</author>
+</inv:module>

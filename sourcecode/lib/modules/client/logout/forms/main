@@ -1,0 +1,11 @@
+<?php
+$errors=new Errors();
+if($security->dropSession())
+{
+	$errors->appendJSError("До встречи !");
+}else{
+	$errors->appendJSError("Внутренняя ошибка системы...");
+	$errors->redirect("/server_.html");
+}
+print $errors->outputData();
+?>

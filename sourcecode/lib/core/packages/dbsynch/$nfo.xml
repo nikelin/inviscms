@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info>
+	<status value='on'/>
+    <authority>
+        <node name='name' value='Kirill A. Karpenko'/>
+        <node name='email' value='LoRd1990@gmail.com'/>
+        <node name='company' value='InnoWeb Studio'/>
+        <node name='license' value='InnoWeb EULA'/>
+        <node name='license_url' value='http://innoweb.org.ua/license/eula.txt'/>
+        <node name='version' value='1.0.0'/>
+        <node name='regcode' value='AF2FA-BDAFEC-5523F'/>
+        <node name='pub_date' value='2008.02.24 20:55'/>
+        <node name='reply_to' value='operator2231@innoweb.org.ua'/>
+        <includes>
+            <item value='package.system.php' hash='md5_hash'/>
+            <item value='interface.system.php' hash='md5_hash'/>
+            <item value='errors.system.php' hash='md5_hash'/>
+            <item value='abstract.system.php' hash='md5_hash'/>
+            <bitsize value='206342'/>
+        </includes>
+    </authority>
+    <dependencies>
+        <abstractions></abstractions>
+        <interfaces></interfaces>
+        <errors></errors>
+    </dependencies>
+</info>

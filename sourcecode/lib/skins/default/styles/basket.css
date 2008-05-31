@@ -1,0 +1,31 @@
+.basket{width:90%;}
+.basket form{display:inline;}
+.basket button{font-size:17px;font-weight:bold;}
+.basket .top{margin-bottom:5px;text-align:center;width:100%;color:inherit}
+.basket .logo{background-color:#CCCCCC;color:#EFFFCF;clear:both;width:100%;font-weight:bold;text-align:center;font-size:21px}
+.basket .listing{width:100%;clear:both;display:block;height:100%}
+.basket .item{margin-top:20px;border:2px #000000 dotted;border-left-width:0px;border-bottom-width:0px;font-size:16px;display:block;width:100%;height:150px;clear:both;}
+.basket .item .left{height:100%;float:left;margin:0;padding:0;}
+.basket .item .left .btn{cursor:pointer;width:100%;display:block;width:20px;background-color:#CCCCCC;border:1px #000000 ridge;}
+.basket .item .preview{width:100px;height:100px;}
+.basket .item .center{float:left;width:93%;}
+.basket .item .center .top{clear:both;}
+.basket .item .center .top .image{float:left;width:30%;margin-right:4%;}
+.basket .item .center .top .description{float:left;text-align:left;width:65%;}
+.basket .item .center .top .title{margin-bottom:3%;display:block;font-size:22px;font-weight:bold;}
+.basket .item .center .top .title span{color:#FF0000;text-decoration:underline;}
+.basket .item .center .top .price {display:block;}
+.basket .item .center .top .price strong{color:#DD1111;background-color:inherit;}
+.basket .item .center .top .quantity {display:block;clear:both;margin-top:2%;}
+.basket .item .center .top .quantity span{float:left;}
+.basket .item .center .top .quantity .label{width:120px;margin-right:10px;}
+.basket .item .center .top .quantity input[type="text"]{text-align:center;width:75px;}
+.basket .item .center .top .discount {background-color:#FFFFEF;font-weight:bold;font-size:18px;display:block;clear:both;margin-top:2%;text-align:center;}
+.basket .item .center .top .discount .club{cursor:pointer;border:0px #FF3AFF dotted;border-bottom-width:3px;}
+.basket .item .center .middle{width:100%;height:25px;text-align:left;font-size:19px;display:block;clear:both;margin-top:10px;}
+.basket .item .center .middle{float:right;}
+.basket .item .center .footer{height:20px;clear:both;display:block;width:100%;padding:0;margin:0;}
+.basket .item .center .footer button{float:left;width:250px;font-weight:bold;}
+.basket .item .center .top .type{display:block;clear:both;margin-top:2%;}
+.basket .item .center .top .type span{float:left;width:120px;margin-right:10px;}
+.basket .item .bottom{display:block;clear:both;width:100%;margin-top:30px;background-color:#EEEEEE;text-align:center;color:inherit}

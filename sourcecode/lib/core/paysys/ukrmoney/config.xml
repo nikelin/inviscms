@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<info>
+	<status value='on'/>
+	<config>
+		<label>RuPay</label>
+		<driver name='rupay'/>
+	</config>
+	<auth>
+		<login>LoRd1990@gmail.com</login>
+		<passwd>d12345</passwd>
+	</auth>
+	<interfaces>
+		<item value='balance' label='Баланс по счетам'/>
+		<item value='transactions' label='История транзакций'/>
+		<item value='config' label='Настройка аккаунта'/>
+	</interfaces>
+</info>

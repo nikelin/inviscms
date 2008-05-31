@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<info xmlns:inv='http://innoweb.com.ua' id='auth' status='off'>
+    <title>SecurityGate </title>
+	<actions/>
+	<dependings>
+		<item name='security'/>
+	</dependings>
+</info>
