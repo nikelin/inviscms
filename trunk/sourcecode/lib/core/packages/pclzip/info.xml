@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info>
+	<status value='on'/>
+    <authority>
+        <name>Vincent Blavet</name>
+        <email>http://www.phpconcept.net</email>
+        <company>PhpConcept</company>
+        <license>License GNU/LGPL</license>
+        <license_url>http://gnu.org/gpl.txt</license_url>
+        <version>1.47</version>
+        <regcode></regcode>
+        <pub_date>2007/07/20 13:56:07</pub_date>
+        <reply_to>operator2231@innoweb.org.ua</reply_to>
+        <includes>
+            <item name='package.pclzip.php'  hash='md5_hash'/>
+            <item name='pclzip.php'  hash=''/>
+            <bitsize value='206342'/>
+        </includes>
+    </authority>
+    <dependencies>
+        <abstractions></abstractions>
+        <interfaces></interfaces>
+        <errors>
+        </errors>
+		<libs>
+			<item name='pear' />
+		</libs>
+    </dependencies>
+</info>

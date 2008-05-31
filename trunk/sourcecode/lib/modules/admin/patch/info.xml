@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<inv:module xmlns:inv='http://innoweb.com.ua' id='patch' status='off'>
+		  <title>Патчи</title>
+			<actions>
+			         <action id='install'>Инсталлировать</action>
+				     <action id='updates'>Запросить обновления</action>
+			         <action id='list'>История</action>
+					 <action id='list'>Откат</action>
+			</actions>
+		  <author>LoRd</author>
+</inv:module>
