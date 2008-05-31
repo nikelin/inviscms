@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<module xmlns:inv='http://innoweb.com.ua' id='labels' status='on'>
+		  <title>Картинки</title>
+			<actions>
+			         <action id='main'>Список</action>
+			         <action id='add'>Добавить</action>
+			</actions>
+		  <author>LoRd</author>
+</module>
+

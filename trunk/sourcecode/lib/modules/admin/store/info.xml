@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<module xmlns:inv='http://innoweb.com.ua' id='store' status='on'>
+		  <title>Каталог</title>
+			<actions>
+			         <action id='add'>Добавить позицию</action>
+			         <action id='list'>Список позиций</action>
+			</actions>
+		  <author>LoRd</author>
+</module>

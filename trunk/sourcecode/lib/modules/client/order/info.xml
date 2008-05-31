@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<inv:module xmlns:inv='http://innoweb.com.ua' id='account' status='on'>
+	<css>
+		<item href='/lib/skins/default/styles/table.css' type='text/css' media='all'/>
+		<item href='/lib/skins/default/styles/order.css' type='text/css' media='all'/>
+	</css>
+</inv:module>

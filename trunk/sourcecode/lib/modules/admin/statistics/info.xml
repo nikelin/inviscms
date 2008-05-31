@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<module xmlns:inv='http://innoweb.com.ua' id='statistics' status='on'>
+		  <title>Статистика</title>
+			<actions></actions>
+		  <author>LoRd</author>
+</module>

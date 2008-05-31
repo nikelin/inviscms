@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<inv:module xmlns:inv='http://innoweb.com.ua' id='clients' status='on'>
+		  <title>Клиенты</title>
+			<actions>
+			         <action id='add'>{^store.add_label}</action>
+			         <action id='list'>{^store.add_label}</action>
+			         <action id='settings'>{^store.add_label}</action>
+			</actions>
+		  <author>LoRd</author>
+</inv:module>
