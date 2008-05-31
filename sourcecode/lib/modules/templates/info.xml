@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<inv:module xmlns:inv='http://innoweb.com.ua' id='templates' status='on'>
-		  <title>Шаблоны</title>
-			<actions>
-			         <action id='main'>Список шаблонов</action>
-			         <action id='add'>Создать</action>
-			</actions>
-		  <author>LoRd</author>
-</inv:module>
