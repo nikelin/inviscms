@@ -14,12 +14,12 @@
 {{{
 --default_module
   -- actions
-  -- main.inc
+    -- main.inc
   -- forms
-  -- main.frm
+    -- main.frm
   -- ui
-  -- style
-  -- js
+    -- style
+    -- js
   -- rules.php
   -- config.xml
   -- info.xml
