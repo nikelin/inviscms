@@ -14,7 +14,7 @@
 #    You should have received a copy of the GNU General Public License
 #    along with InvisCMS.  If not, see <http://www.gnu.org/licenses/>.
 ?><?php
-  class rupay extends payment{
-		
-  }
+interface errorsI{
+					public function appendJSError($text);
+}
 ?>
