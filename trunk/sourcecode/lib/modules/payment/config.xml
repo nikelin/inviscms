@@ -1,0 +1,14 @@
+<config>
+				    <parts><item>
+				             <name>Список</name>
+				             <system>add</system>
+				             <description>Список</description>
+				             <status value='on'/>
+				        </item></parts>
+				     <system>
+					 	 <id>payment</id>
+				         <name>Системы платежей</name>
+				         <part>admin</part>
+				         <status value='off'/>
+				     </system>
+				</config>

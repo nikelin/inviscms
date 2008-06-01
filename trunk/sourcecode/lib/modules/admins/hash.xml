@@ -1,0 +1,14 @@
+<?xml version='1.0'?>
+<authority>
+	<data>
+			<item path='./forms/add.frm' type='md5' value='442b24c4aff42f76bf86a69ba95401f5'/>
+			<item path='./forms/main.frm' type='md5' value='08ddcf6029cf1dd7496a0e3874de31f8'/>
+			<item path='./forms/approve.frm' type='md5' value='746f2bc5fc8218d421e826d62e13c1ab'/>
+			<item path='./hash.xml' type='md5' value='02f4cceb85eb73f8e695fa53f3320107'/>
+			<item path='./lang.xml' type='md5' value='1bb1e9697af4348d1c299613e423bb47'/>
+			<item path='./info.xml' type='md5' value='6152b2c69df9ccca0e10af81b32511fe'/>
+			<item path='./actions/add.inc' type='md5' value='fb7569a0b5d6d6503806502f4edc914a'/>
+			<item path='./config.xml' type='md5' value='20cc7a43397b3ae5a59cac5e82d44cae'/>
+	</data>
+	<check>b47bcb3d576b7490da8bf524b608a5c8</check>
+</authority>
