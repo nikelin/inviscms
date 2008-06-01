@@ -1,6 +1,8 @@
 #summary Архитектура движка
 #labels Featured,Phase-Design,Phase-Implementation
 
+=== This story in English: [Architecture_Eng Read] ===
+
 =Описание=
 
 В данной статье описываются основные подходы к организации внутренней
