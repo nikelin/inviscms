@@ -65,6 +65,20 @@ class database implements databaseI{
 		}
 		return $data;
 	}
+	
+	public function getOne($query,&$ob)
+	{
+		$result=null;
+		if($query!='')
+		{
+			try{
+				$q=$this->proceedQuery($query);
+				$result=@mysql_result($q,1,1);
+			}catch(DatabaseError $e){}
+		}
+		if($ob) $ob=$result;
+		return $result;
+	}
 
 	public function fillArrWithVal($array,$value)
 	{
