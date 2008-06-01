@@ -1,5 +1,5 @@
 #summary Project description
-#labels Phase-Design
+#labels Phase-Design,Featured
 
 The system is a powerful platform for the creation of flexible, scalable and user-friendly, accompanied web projects.  
 
