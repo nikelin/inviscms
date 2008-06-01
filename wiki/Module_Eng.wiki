@@ -217,7 +217,7 @@ The description: a file for the description of the license under which delivery 
 <!ELEMENT data (item + | EMPTY)/>
 <!ELEMENT item EMPTY/>
 <!ATTLIST item
-                    path CDATA  *REQUIRED
-                    type (md5, sha1)  *REQUIRED "md5"
-                    value CDATA *REQUIRED/>
+               path CDATA  #REQUIRED
+               type (md5, sha1) "md5"
+               value CDATA #REQUIRED/>
 }}}
