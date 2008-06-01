@@ -1,0 +1,12 @@
+<?xml version='1.0'?>
+<authority>
+	<data>
+			<item path='./forms/main.frm' type='md5' value='b723ddbe94c497d6d785dfd28b89606e'/>
+			<item path='./hash.xml' type='md5' value='cfa379c47c9d065a1cc684032ec83cae'/>
+			<item path='./info.xml' type='md5' value='6152b2c69df9ccca0e10af81b32511fe'/>
+			<item path='./install.xml' type='md5' value='78d4ecf230822f16d1ebe8c7c864b1b3'/>
+			<item path='./license.txt' type='md5' value='8cbcf8e09b87ab34eb16986b12938026'/>
+			<item path='./config.xml' type='md5' value='7ca5752dd0f8287e02a6111597575d37'/>
+	</data>
+	<check>a6ccd5c74ca0de1c2d9bba165ebc7ef1</check>
+</authority>

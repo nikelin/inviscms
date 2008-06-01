@@ -1,0 +1,11 @@
+<?xml version='1.0'?>
+<authority>
+	<data>
+			<item path='./forms/main.frm' type='md5' value='3f62c8ad6ebe941a75ab49d1d3a16b71'/>
+			<item path='./hash.xml' type='md5' value='59e231d7e89d751326b8964638cd9f50'/>
+			<item path='./info.xml' type='md5' value='6152b2c69df9ccca0e10af81b32511fe'/>
+			<item path='./rules.php' type='md5' value='a0fa0df0d0a0d8cd4320e57c97dbcd8d'/>
+			<item path='./config.xml' type='md5' value='8a0afb9165f7dbfd1482d0f4ee40ba31'/>
+	</data>
+	<check>1d669bf7e68a90fbe2349e9a0ba4ad0b</check>
+</authority>

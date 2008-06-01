@@ -1,0 +1,20 @@
+<?xml version='1.0'?>
+<authority>
+	<data>
+			<item path='./forms/dirs.frm' type='md5' value='9e9d9154a0762fd79d377ad41e78f5a3'/>
+			<item path='./forms/upload.frm' type='md5' value='4410e2c997753cca55d44f6e37a9b470'/>
+			<item path='./forms/edit.frm' type='md5' value='c6514edb065947746352923162776783'/>
+			<item path='./forms/aupload.frm' type='md5' value='559597d26c51602fb3f00c9d36bc07d6'/>
+			<item path='./forms/main.frm' type='md5' value='07131fe590a57f7ea2d7821f7f05c7ea'/>
+			<item path='./forms/delete.frm' type='md5' value='4acf8ca28c05395d9c26db2e6b14db62'/>
+			<item path='./hash.xml' type='md5' value='b96eece0d1abcf972f1428eacd5a0616'/>
+			<item path='./info.xml' type='md5' value='6152b2c69df9ccca0e10af81b32511fe'/>
+			<item path='./actions/main.inc' type='md5' value='eafba94d3318e1796e649b3abe0e64a9'/>
+			<item path='./actions/edit.inc' type='md5' value='f62a34753a5f64722eb145be22c30241'/>
+			<item path='./actions/aupload.inc' type='md5' value='520267e425d4be4c734a2aee75780323'/>
+			<item path='./actions/upload.inc' type='md5' value='3ceebb5bed59c81bd409ca2a50aff18b'/>
+			<item path='./actions/dirs.inc' type='md5' value='9dec5f588ea32d9afa42a2fea0b634a1'/>
+			<item path='./config.xml' type='md5' value='1b568bb7e773182f2523dd3537ebeadc'/>
+	</data>
+	<check>bd8b110081446a8868fe2a42ca041400</check>
+</authority>

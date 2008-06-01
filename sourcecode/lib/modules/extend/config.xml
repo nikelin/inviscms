@@ -1,0 +1,19 @@
+<config>
+				    <parts><item>
+				             <name>Список модулей</name>
+				             <system>add</system>
+				             <description>Список модулей</description>
+				             <status value='on'/>
+				        </item><item>
+				             <name>Добавление нового</name>
+				             <system>add</system>
+				             <description>Добавление нового</description>
+				             <status value='on'/>
+				        </item></parts>
+				     <system>
+					 	 <id>extend</id>
+				         <name>Расширение системы</name>
+				         <part>admin</part>
+				         <status value='on'/>
+				     </system>
+				</config>

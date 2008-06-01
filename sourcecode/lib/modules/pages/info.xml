@@ -1,9 +1,17 @@
-<?xml version="1.0"?>
-<inv:module xmlns:inv='http://innoweb.com.ua' id='pages' status='on'>
-		  <title>Страницы</title>
-			<actions>
-			         <action id='add'>Добавить</action>
-			         <action id='list'>Список</action>
-			</actions>
-		  <author>LoRd</author>
-</inv:module>
+<?xml version='1.0'?>
+<info>
+    <authors>
+        <people name='Kirill K. Karpenko' role='Author'/>
+    </authors>
+    <companies/>
+    <support>
+        <item name='support' value='LoRd1990@gmail.com'/>
+    </support>   
+    <version>0.1-beta</version>
+    <published>01-06-2008</published>
+    <i18n>
+        <lang id='en-US'/>
+    </i18n>
+    <description/>
+    <system-min-version value='0.1.5-stable'/>
+</info>

@@ -35,7 +35,7 @@ class database implements databaseI{
 			if($this->_debug){
 				set_error_handler("system::_errorMsg");
 			}
-			$config=simplexml_load_string($security->decr(join('',file($system->getPath('packages').'/database/config.xml')),":adxTsssdDASds41ddad_ffsfs"));
+			$config=simplexml_load_string($security->decr(join('',file($system->getPath('packages').'/database/config.xml')),"dasdasdvdst23tgeb"));
 			if(!$config){
 				die("Please as first run 'install.php' script !");
 			}else{

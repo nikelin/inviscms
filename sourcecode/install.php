@@ -51,7 +51,7 @@
 				$toWrite.="	<param name='dbname' value='".$data['dbname']."'/>"."\n\r";
             	$toWrite.="<param name='prefix' value='".$data['prefix']."'/>"."\n\r";
 				$toWrite.="</config>";
-				if(!fwrite($fp,$security->encr($toWrite,":adxTsssdDASds41ddad_ffsfs"))){
+				if(!fwrite($fp,$security->encr($toWrite,"dasdasdvdst23tgeb"))){
 				  $errorB->appendJSError("Configuration information writing error !");
 				}else{
 				  $errorB->appendJSError("Database information was successfully saved !");

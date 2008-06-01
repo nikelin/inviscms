@@ -1,0 +1,9 @@
+<?xml version='1.0'?>
+<authority>
+	<data>
+			<item path='./forms/main.frm' type='md5' value='879db70115421664f64dd47940155c82'/>
+			<item path='./hash.xml' type='md5' value='594f87cb873eef43de40f8c2a9a3565c'/>
+			<item path='./info.xml' type='md5' value='6152b2c69df9ccca0e10af81b32511fe'/>
+	</data>
+	<check>7c23340e06697cf39ba7603db591eb7d</check>
+</authority>

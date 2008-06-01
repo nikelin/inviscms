@@ -1,0 +1,29 @@
+<config>
+				    <parts><item>
+				             <name>Список</name>
+				             <system>main</system>
+				             <description>Список</description>
+				             <status value='on'/>
+				        </item><item>
+				             <name>Загрузить</name>
+				             <system>upload</system>
+				             <description>Загрузить</description>
+				             <status value='on'/>
+				        </item><item>
+				             <name>Директории</name>
+				             <system>dirs</system>
+				             <description>Директории</description>
+				             <status value='on'/>
+				        </item><item>
+				             <name>Пакетная загрузка</name>
+				             <system>aupload</system>
+				             <description>Пакетная загрузка</description>
+				             <status value='on'/>
+				        </item></parts>
+				     <system>
+					 	 <id>files</id>
+				         <name>Файлы</name>
+				         <part>admin</part>
+				         <status value='on'/>
+				     </system>
+				</config>

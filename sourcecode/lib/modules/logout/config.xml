@@ -1,9 +1,9 @@
 <config>
 				    <parts></parts>
 				     <system>
-					 	 <id>auth</id>
-				         <name>SecurityGate </name>
+					 	 <id>languages</id>
+				         <name>Словари</name>
 				         <part>admin</part>
-				         <status value='off'/>
+				         <status value='on'/>
 				     </system>
 				</config>

@@ -1,0 +1,19 @@
+<config>
+				    <parts><item>
+				             <name>Добавить</name>
+				             <system>add</system>
+				             <description>Добавить</description>
+				             <status value='on'/>
+				        </item><item>
+				             <name>Список</name>
+				             <system>list</system>
+				             <description>Список</description>
+				             <status value='on'/>
+				        </item></parts>
+				     <system>
+					 	 <id>pages</id>
+				         <name>Страницы</name>
+				         <part>admin</part>
+				         <status value='on'/>
+				     </system>
+				</config>
