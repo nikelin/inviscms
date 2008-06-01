@@ -1,6 +1,8 @@
 #summary Project description
 #labels Phase-Design,Featured
 
+=== Данная статья на Русском языке: [RussianDescription Перейти] ===
+
 The system is a powerful platform for the creation of flexible, scalable and user-friendly, accompanied web projects.  
 
  System architecture is based on the XML format, and submitted's a two parts: the packages and modules.  
