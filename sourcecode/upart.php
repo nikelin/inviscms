@@ -14,12 +14,5 @@
 #    You should have received a copy of the GNU General Public License
 #    along with InvisCMS.  If not, see <http://www.gnu.org/licenses/>.
 ?><?php 
-    $GLOBALS['skin_path']='./lib/skins/default';
-	if($database->getSQLParameter("settings","site_closed",array("id"=>1))=="off"){
-		header("Location: hello.html");
-		exit;
-	}
-	$i18n->initializeDictionary($invisparser);
-	$tools->registerWrapper(array("articles","developers","cats","home","delivery"),array(array(&$sape_context,"replace_in_text_segment")));
-	print $tools->postfetchProceed(stripslashes($invisparser->fetch(($GLOBALS['path_to_site']."/lib/skins/default/main.tpl"))));
+	
 ?>

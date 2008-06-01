@@ -22,32 +22,14 @@ $mtime = explode(" ",$mtime);
 $mtime = $mtime[1] + $mtime[0];
 //Записываем стартовое время в переменную
 $tstart = $mtime;
-$m_path="lib/modules/admin";
+$m_path="./lib/modules";
 $p=opendir($m_path);
 $params=$GLOBALS['params'];
 if(!isset($params['params'][0]))
 {
 	$params['params'][0]='home';
 }
-$GLOBALS['info']=array();
 $errorsB=new Errors();
-while(false!==($file=readdir($p))){
-	if($file!='.' && $file!='..' && is_dir($m_path.'/'.$file)){
-		$info[$file]['info']=(file_exists($m_path.'/'.$file.'/info.xml'))?simplexml_load_file($m_path.'/'.$file.'/info.xml'):array();
-  	$info[$file]['lang']=(file_exists($m_path.'/'.$file.'/langs/ru.xml'))?simplexml_load_file($m_path.'/'.$file.'/langs/ru.xml'):array();
-	}
-}
-$modules_on=array();
-foreach($info as $k=>$v){
-	#die_r($v);
-	#print_rbr($v);
- if(isset($v['info']['status']) && $v['info']['status']=='on'){
-	 $modules_on[(string)$v['info']['id']]=array(
-	 																				'indefier'=>(string)$v['info']['id'],
-		 																			'title'=>(string)$v['info']->title
-																					 );
- }
-}
 $auth=$security->authorized("admin");
 $sessions->registerData("last_access_time".md5($_SERVER['REMOTE_ADDR']),time());
 ?>
@@ -65,7 +47,6 @@ $sessions->registerData("last_access_time".md5($_SERVER['REMOTE_ADDR']),time());
 		<script type='text/javascript' src='/lib/gt/editor/tiny_mce.js'></script>
 		<script type='text/javascript'>
 			<!--
-			
 				tinyMCE.init({
 				  	theme : "advanced",
 				  	mode : "exact",
@@ -88,7 +69,6 @@ $sessions->registerData("last_access_time".md5($_SERVER['REMOTE_ADDR']),time());
 			</h1>
 			<div class='top_menu admenu'>
 				<?=$html->topRounded('100%');?>
-				<!--{{{{MENU_AREA-->
 				<?php
 					if($auth){
 						 foreach($modules_on as $k=>$v){
@@ -102,9 +82,8 @@ $sessions->registerData("last_access_time".md5($_SERVER['REMOTE_ADDR']),time());
                 		 print "Вы не прошли процедуру авторизации !";
           			}
 				?>
-					<!--MENU_AREA}}}-->
 			</div>
-											<?php
+			<?php
 					if($auth){
 				?>
 			<?=$html->bottomRounded('100%');?>

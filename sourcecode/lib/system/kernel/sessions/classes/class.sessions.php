@@ -31,17 +31,15 @@ class sessions implements sessionsI{
 		return $result;
 	}
 
-	public function registerData($indefier,$value,$time=array(),$replace=false){
+	public function registerData($indefier,$value,$length=126000,$replace=false){
 		$result=false;
 		$database=&$GLOBALS['database'];
-		
-		if(is_array($time) && count($time)==2 && (($time[0]+$time[1])!=time())){
-			list($start_time,$length)=$time;
+		if(is_array($length)) $length=$length[1];
 			if($database->checkRowExists("sessions",array("name"=>$indefier,"client"=>$_SERVER['REMOTE_ADDR'])))
 			{
 				if($replace)
 				{
-					if($database->updateRow("sessions",array("body"=>$value,"start_time"=>$start_time,"length"=>$length),array("name"=>$indefier)))
+					if($database->updateRow("sessions",array("body"=>$value,"start_time"=>time(),"length"=>$length),array("name"=>$indefier)))
 					{
 						$result=true;
 					}
@@ -51,13 +49,11 @@ class sessions implements sessionsI{
 				}
 			}
 			if(!$result){
-				if($database->insertRow("sessions",array('',$indefier,$value,$start_time,$length,$_SERVER['REMOTE_ADDR'])))
+				if($database->insertRow("sessions",array('',$indefier,$value,time(),$length,$_SERVER['REMOTE_ADDR'])))
 				{
 					$result=true;
 				}
 			}
-		}
-		#die_r($database->sqlErrorString());
 		return $result;
 	}
 
@@ -78,15 +74,12 @@ class sessions implements sessionsI{
 	public function isDeath($indefier){
 		$database=&$GLOBALS['database'];
 		$result=true;
-		#die($indefier);
 		if($this->checkExists($indefier)){
 			$q=$database->proceedQuery("SELECT start_time,length FROM `#prefix#_sessions` WHERE name='".$indefier."' AND client='".$_SERVER['REMOTE_ADDR']."'");
-			# die($database->sqlErrorString());
 			if(!$database->isError()){
 				if($database->getNumrows($q)!=0)
 				{
 					$row=$database->fetchQuery($q);
-					#die_r((($row['start_time']+$row['length'])-time())>0);
 					if((($row['start_time']+$row['length'])-time())>0){
 						return false;
 					}
