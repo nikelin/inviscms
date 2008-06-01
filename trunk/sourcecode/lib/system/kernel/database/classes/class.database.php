@@ -46,6 +46,25 @@ class database implements databaseI{
 			}
 		}
 	}
+	
+	public function query2XML($array)
+	{
+		$data=null;
+		if(is_array($array))
+		{
+			$data='<items>';
+			for($i=0;$i<count($array);$i++)
+			{
+				$data.="<item id='".$i."'>";
+				foreach ($array[$i] as $k=>$v)
+				{
+					$data.='<'.$k.'>'.$v.'</'.$k.'>';
+				}
+			}
+			$data.='</items>';
+		}
+		return $data;
+	}
 
 	public function fillArrWithVal($array,$value)
 	{
