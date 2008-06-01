@@ -1,6 +1,8 @@
 #summary Подход к реализации процесса установки системы
 #labels Phase-Implementation,Phase-Design,Featured
 
+=== This story in English: [InstallationProcess_Eng Read] ===
+
 = Обзор =
 
 В данной статье описаны основные идеи и подходы к реализации процесса инсталляции системы на компьютере пользователя.
