@@ -63,20 +63,20 @@ Further the specification of their internal structure is considered(examined):
 *The DTD-specification of the XML-document*:
 {{{
 <? xml version = ' 1.0 '?>
-<! ELEMENT config (parts +, system +)/>
-<! ELEMENT config.parts item +/>
-<! ELEMENT config.parts.item (name +, system +, description?, status +)/>
-<! ELEMENT config.parts.item.name *PCDATA/>
-<! ELEMENT config.parts.item.system *PCDATA/>
-<! ELEMENT config.parts.item.description *PCDATA/>
-<! ELEMENT config.parts.item.status EMPTY/>
-<! ATTLIST config.parts.item.status
+<!ELEMENT config (parts +, system +)/>
+<!ELEMENT config.parts item +/>
+<!ELEMENT config.parts.item (name +, system +, description?, status +)/>
+<!ELEMENT config.parts.item.name *PCDATA/>
+<!ELEMENT config.parts.item.system *PCDATA/>
+<!ELEMENT config.parts.item.description *PCDATA/>
+<!ELEMENT config.parts.item.status EMPTY/>
+<!ATTLIST config.parts.item.status
                     value (' on ', ' off ') ' on '/>
-<! ELEMENT config.system (name +, part +, status +)/>
-<! ELEMENT config.system.name *PCDATA/>
-<! ELEMENT config.system.part *PCDATA/>
-<! ELEMENT config.system.status EMPTY/>
-<! ATTLIST config.system.status
+<!ELEMENT config.system (name +, part +, status +)/>
+<!ELEMENT config.system.name *PCDATA/>
+<!ELEMENT config.system.part *PCDATA/>
+<!ELEMENT config.system.status EMPTY/>
+<!ATTLIST config.system.status
                     value (' on ', ' off ') ' on '/>
 }}}
 
@@ -195,10 +195,10 @@ The description: a file for the description of the license under which delivery 
 }}}
 *The DTD-specification of the document*: 
 {{{
-<? xml version = ' 1.0 '?>
-<! ELEMENT info (type +, name +, (url | content | (content , url)) +, content *)/>
-<! ELEMENT info.content item*/>
-<! ATTLIST info.content.item
+<?xml version=' 1.0 '?>
+<!ELEMENT info (type +, name +, (url | content | (content , url)) +, content *)/>
+<!ELEMENT info.content item*/>
+<!ATTLIST info.content.item
                   xml:lang CDATA *REQUIRED "en-EN"/>
 }}}
 *File hash.xml*:
@@ -213,10 +213,10 @@ The description: a file for the description of the license under which delivery 
 }}}
 *The DTD-specification of the XML-document*:
 {{{ 
-<? xml version = ' 1.0 '?>
-<! ELEMENT data (item + | EMPTY)/>
-<! ELEMENT item EMPTY/>
-<! ATTLIST item
+<?xml version = '1.0'?>
+<!ELEMENT data (item + | EMPTY)/>
+<!ELEMENT item EMPTY/>
+<!ATTLIST item
                     path CDATA  *REQUIRED
                     type (md5, sha1)  *REQUIRED "md5"
                     value CDATA *REQUIRED/>
