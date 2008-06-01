@@ -1,7 +1,7 @@
 #summary Подход к реализации процесса установки системы
 #labels Phase-Implementation,Phase-Design,Featured
 
-=== This story in English: [InstallationProcess_Eng Read] ===
+=== This story in English: [InstallationProcces_Eng Read] ===
 
 = Обзор =
 
