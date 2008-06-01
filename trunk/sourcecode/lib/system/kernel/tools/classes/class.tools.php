@@ -26,6 +26,16 @@ class tools{
 		return preg_match('/[a-zA-Z0-9_\-]*[\@]+([a-zA-Z0-9_\-]*\.+){1,}/',$this->decodeString($str));
 	}
 	
+	public function firstTime()
+	{
+		return $GLOBALS['sessions']->isDeath("welcome");
+	}
+	
+	public function getSettings()
+	{
+		return $GLOBALS['database']->fetchQuery($GLOBALS['database']->getRows("settings","*"));
+	}
+	
 	public function isURL($str)
 	{
 		return preg_match('/(?:http\:\/\/)*(www\.)?([a-zA-Z0-9_\-]*\.+){1,}[\/]?/',$this->decodeString($str));
@@ -37,6 +47,11 @@ class tools{
 		return(preg_match('/(\+)?[\s]*[0-9]{1,3}[\s]*\([0-9]{1,5}\)[\s]*[0-9\-]{5,9}/',$str)
 				|| preg_match('/\([0-9]{1,5}\)[\s]*[0-9\-]{5,9}/',$str)
 				|| preg_match('/[0-9\s]{10,20}/',$str));
+	}
+	
+	public function siteClosed()
+	{
+		return ($GLOBALS['database']->getSQLParameter("settings","site_closed",array("id"=>1))=="off");
 	}
 
 
