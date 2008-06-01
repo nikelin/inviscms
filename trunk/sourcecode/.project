@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>trunk</name>
+	<name>nzssdas</name>
 	<comment></comment>
 	<projects>
-		<project>inviscms</project>
 	</projects>
 	<buildSpec>
 	</buildSpec>

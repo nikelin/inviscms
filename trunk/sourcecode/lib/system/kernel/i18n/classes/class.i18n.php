@@ -27,6 +27,18 @@ class i18n
 			$sessions->registerData("lang",$this->delaultLang(),array(time(),3600*60),true);
 		}
 	}
+	
+	public function currentLanguageSet()
+	{
+		if(isset($GLOBALS['mod']) && $GLOBALS['mod']=='lang')
+		{
+			$result=$sessions->registerData("lang",$i18n->getLandId($GLOBALS['params']['params'][0]),3600*60);
+		}else{
+			$result=$sessions->registerData("lang",$i18n->delaultLang(),3600*60);
+		}
+		return $result;
+	}
+	
 	/**
 	 * Get current language-scheme
 	 *
