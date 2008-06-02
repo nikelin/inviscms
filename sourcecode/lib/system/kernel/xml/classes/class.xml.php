@@ -64,5 +64,7 @@ class xml{
 		$node=$this->xpath_node($path);
 		return (isset($node[$attr])?$node[$attr]:null);
 	}
+	
+	
 }
 ?>
