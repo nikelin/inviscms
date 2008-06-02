@@ -16,80 +16,10 @@
 ?><?php
 define("MAIN_SCRIPT_LOADED",1);
 include "./lib/core/others/init.php";
-﻿<?php
-$description='';
-$title='';
-$keywords='';
-if(@include("lib/modules/client/".$GLOBALS['params']['mod']."/rules.php"))
-{
-	$description=description();
-	$title=slug();
-	$keywords=keywords();
-}
-	$css='';
-	$rss='';
-	$scripts='';
-if($data=@simplexml_load_file("lib/modules/client/".$GLOBALS['params']['mod']."/info.xml"))
-{
-	if(isset($data->css))
-	{
-		if(isset($data->css->item))
-		{
-			for($i=0;$i<count($data->css->item);$i++)
-			{
-				$ob=$data->css->item[$i];
-				$css.="<link rel='stylesheet' href='".$ob['href']."' type='".$ob['type']."' media='".$ob['media']."'/>";
-			}
-		}else
-		{
-			if($data->css['href']!='')
-				$css='<link rel="stylesheet" type="'.$data->css['type'].'" href="'.$data->css['href'].'" media="'.$data->css['media'].'"/>';
-		}
-	}
-	if(isset($data->rss))
-	{
-		if(isset($data->rss->item))
-		{
-			for($i=0;$i<count($data->rss->item);$i++)
-			{
-				$ob=$data->rss->item[$i];
-				if($ob['href']!='')
-					$rss.="<link rel='alternate' href='".$ob['href']."' type='".$ob['type']."'/>";
-			}
-		}else
-		{
-			if($data->rss['href']!='')
-				$rss='<link rel="alternate" type="'.$data->css['type'].'" href="'.$data->rss['href'].'"/>';
-		}
-	}
-	
-	if(isset($data->scripts))
-	{
-		if(isset($data->scripts->item))
-		{
-			for($i=0;$i<count($data->scripts->item);$i++)
-			{
-				$ob=$data->scripts->item[$i];
-				if($ob['href']!='')
-				{
-					$scripts.=('Invis.tools.loadLib("js","'.$data->scripts['href'].'");'."\n");
-				}
-			}
-		}else
-		{
-			if($data->scripts['href']!='')
-			{
-				$scripts.=('Invis.tools.loadLib("js","'.$data->scripts['href'].'");'."\n");
-			}
-		}
-	}
-	
-}
-$curr_sets=$tools->getSettings();
+$parts=$tools->currentPageParts();
+$curr_sets=$uinterface->getSettings();
 if(!$database->isError())
 {
-	#die_r($googletranslate->translate("Дом","en","ru",array("Invis.tools.googletranslate._successful","dafna"),false));
-	#die_r($googletranslate->detect("My house - my forrtress !"));
 	if(isset($_GET['q'])){
 		$GLOBALS['params']=$system->convertURL2HUA($_GET['q'],"news");
 	}else{

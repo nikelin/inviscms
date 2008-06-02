@@ -1,21 +1,4 @@
 <?php
-$data="<?xml version='1.0'?>
-<info>
-    <authors>
-        <people name='Kirill K. Karpenko' role='Author'/>
-    </authors>
-    <companies/>
-    <support>
-        <item name='support' value='LoRd1990@gmail.com'/>
-    </support>   
-    <version>0.1-beta</version>
-    <published>".date("d-m-Y")."</published>
-    <i18n>
-        <lang id='en-US'/>
-    </i18n>
-    <description/>
-    <system-min-version value='0.1.5-stable'/>
-</info>";
 $d='./lib/modules';
 $dir=opendir($d);
 while(false!==($el=@readdir($dir)))
@@ -25,6 +8,23 @@ while(false!==($el=@readdir($dir)))
 	{
 		if($fp=@fopen($path.'/info.xml',"w+"))
 		{
+			$data="<?xml version='1.0'?>
+			<info>
+			    <authors>
+			        <people name='Kirill K. Karpenko' role='Author'/>
+			    </authors>
+			    <companies/>
+			    <support>
+			        <item name='support' value='LoRd1990@gmail.com'/>
+			    </support>   
+			    <version>0.1-beta</version>
+			    <published>".date("d-m-Y")."</published>
+			    <i18n>
+			        <lang id='en-US'/>
+			    </i18n>
+			    <description/>
+			    <system-min-version value='0.1.5-stable'/>
+			</info>";
 			@flock($fp,LOCK_EX);
 			if(@fwrite($fp,$data))
 			{
