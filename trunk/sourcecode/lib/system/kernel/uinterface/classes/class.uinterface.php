@@ -19,13 +19,93 @@ class uinterface
 	public $elems=array() ;
 	public $instances=array();
 	
+	public function currentPageParts($mod)
+	{
+		$result=array(
+								'description'=>'',
+								'title'=>'',
+								'keywords'=>'',
+								'css'=>'',
+								'scripts'=>'',
+								'rss'=>''
+							);
+		if(@include(MOD_DIR_PATH.'/'.$mod."/rules.php"))
+		{
+			$result['description']=description();
+			$result['title']=slug();
+			$result['keywords']=keywords();
+		}
+		if($data=@simplexml_load_file(MOD_DIR_PATH.'/'.$mod."/config.xml"))
+		{
+			if(isset($data->css))
+			{
+				if(isset($data->css->item))
+				{
+					for($i=0;$i<count($data->css->item);$i++)
+					{
+						$ob=$data->css->item[$i];
+						$result['css'].="<link rel='stylesheet' href='".$ob['href']."' type='".$ob['type']."' media='".$ob['media']."'/>";
+					}
+				}else
+				{
+					if($data->css['href']!='')
+						$result['css'].='<link rel="stylesheet" type="'.$data->css['type'].'" href="'.$data->css['href'].'" media="'.$data->css['media'].'"/>';
+				}
+			}
+			if(isset($data->rss))
+			{
+				if(isset($data->rss->item))
+				{
+					for($i=0;$i<count($data->rss->item);$i++)
+					{
+						$ob=$data->rss->item[$i];
+						if($ob['href']!='')
+							$result['rss'].="<link rel='alternate' href='".$ob['href']."' type='".$ob['type']."'/>";
+					}
+				}else
+				{
+					if($data->rss['href']!='')
+						$result['rss'].='<link rel="alternate" type="'.$data->css['type'].'" href="'.$data->rss['href'].'"/>';
+				}
+			}
+			
+			if(isset($data->scripts))
+			{
+				if(isset($data->scripts->item))
+				{
+					for($i=0;$i<count($data->scripts->item);$i++)
+					{
+						$ob=$data->scripts->item[$i];
+						if($ob['href']!='')
+						{
+							$result['scripts'].=('Invis.tools.loadLib("js","'.$data->scripts['href'].'");'."\n");
+						}
+					}
+				}else
+				{
+					if($data->scripts['href']!='')
+					{
+						$result['scripts'].=('Invis.tools.loadLib("js","'.$data->scripts['href'].'");'."\n");
+					}
+				}
+			}	
+		}
+		return $result;
+	}
+	
 	public function catHasChilds($id){
-		$database=$GLOBALS['database'];
+		// InheritsSection: {
+		$database=&$GLOBALS['database'];
+		// };
+		
 		$q=$database->proceedQuery("SELECT * FROM `#prefix#_cats` WHERE pid='".addslashes($id)."' AND status='on'");
 		return ($database->isError())?0:$database->getNumrows($q);
 	}
 	public function catsListRender($root=null){
-		$database=$GLOBALS['database'];
+		// InheritsSection: {
+		$database=&$GLOBALS['database'];
+		
+		# FIX: `code` -> `presentation`
 		$depth=0;
 		$res=null;
 		$q=$database->proceedQuery("SELECT * FROM `#prefix#_cats` WHERE status='on' ORDER by `pid` ASC");
@@ -47,7 +127,6 @@ class uinterface
 						$res.=' title="Go to URL">'.rawurldecode($el['title']).'</a>';
 						$res.='</li>';
 						if($childs){
-							#print $el['id'];
 							$depth++;
 							$res.='<ul id="'.$idName.'" class="cats_list" style="display:none;background-color:#EEEEEE;border:0px #999999 dotted;border-left-width:2px;padding:0;margin:0;margin-left:12px">'.$this->catsListRender($el['id']).'</ul>';
 						}
@@ -62,7 +141,7 @@ class uinterface
 		$res.='</ul>';
 		return $res;
 	}
-	public function user_lang_bar()
+	public function userLanguagePanel()
 	{
 		$database=&$GLOBALS['database'];
 		$html=&$GLOBALS['html'];
@@ -82,14 +161,18 @@ class uinterface
 		}
 		return $result;
 	}
+	
 	public function getUIParam($name,$lang)
 	{
 		return $GLOBALS['i18n']->lngParse($GLOBALS['database']->getSQLParameter("settings",$name,1),$lang);
 	}
+	
 	public function buildClientPage($indefier)
 	{
+		// InheritsSection: {
 		$database=$GLOBALS['database'];
 		$html=$GLOBALS['html'];
+		
 		$where=array((is_string($indefier)?"ufu":"id")=>$indefier,'status'=>'on');
 		if($database->checkRowExists("pages",$where))
 		{
@@ -109,11 +192,13 @@ class uinterface
 		}
 		return $result;
 	}
+	
 	public function buildActionsTab($module,$pairs)
 	{
+		// InheritsSection: {
 		$html=$GLOBALS['html'];
-		$result='';
-		$result.="<div style='margin-bottom:60px;'>&nbsp;</div>";
+		
+		$result="<div style='margin-bottom:60px;'>&nbsp;</div>";
 		$result.=$html->topRounded("100%");
 		$result.='<div class="actionTabs">';
 		$result.='<span>Выбранные элементы:</span>';
@@ -125,69 +210,16 @@ class uinterface
 		$result.="</select></div>";
 		return $result;
 	}
-	public function showCategoriesLinks($root=0){
-		$database=&$GLOBALS['database'];
-		$html=&$GLOBALS['html'];
-		$cats=array();
-		if(!$root){
-		    $q="SELECT * FROM `#prefix#_cats` WHERE status='on' AND pid=-1";
-		}else{
-		    $cats[]=$root;
-		    $q="SELECT * FROM `#prefix#_cats` WHERE status='on' AND pid=".$root;
-		}
-		$data=array();
-	    $q=$database->proceedQuery($q);
-	    if(!$database->isError())
-	    {
-	        if($database->getNumrows($q)!=0)
-	        {
-	            while($row=$database->fetchQuery($q))
-	            {
-	                    
-	                $data[]=$row;
-					$cats[]=$row['id'];
-	            }
-	        }
-	    }
-		return array('to_display'=>$html->render_catergories_links($data),'cats'=>$cats);
-	}
-	public function goods_list($cid=0,$where=array(),$order=array('default','ASC'),$limit=0)
-	{
-		$html=&$GLOBALS['html'];
-		$database=&$GLOBALS['database'];
-		$result=null;
-		$where=($where)?$database->makeWhereString($where).' AND':'WHERE ';
-		$cid=($cid!=0)?' AND cid=\''.$cid.'\' ':' ';
-		$order=($order && is_array($oder) && count($order)==2)?"ORDER by `".$order[0]."` ".$order[1]:'';
-		$limit=($limit && is_numeric($limit))?"LIMIT 0,".$limit:"";
-		#print_r($where." AND status='on'");
-		$q=$database->proceedQuery("SELECT title,id,tid,lid,price,discount,
-									(SELECT front FROM `#prefix#_templates` WHERE id=tid) AS front_id,
-									(SELECT src FROM `#prefix#_files` WHERE id=front_id) AS front_src,
-									(SELECT fid FROM `#prefix#_labels` WHERE id=lid) AS label_id,
-									(SELECT src FROM `#prefix#_files` WHERE id=label_id) AS label_src
-									FROM `#prefix#_catalog`
-									".$where." status='on' ".$cid.$order.$limit);
-		if(!$database->isError()){
-			if($database->getNumrows($q)!=0)
-			{
-				while($data=$database->fetchQuery($q))
-				{
-					$result[]=$data;
-				}
-			}
-		}else{
-			die_r($database->sqlErrorString());
-		}
-		return $html->render_goods_list($result);
-	}
+	
 	public function block_place($side)
 	{
+		// InheritsSection: {
 		$html=&$GLOBALS['html'];
 		$database=&$GLOBALS['database'];
-		$side=(trim($side)=='')?'left':$side;
+		// };
+		
 		$result=null;
-		//BLOCKS
+		$side=(trim($side)=='') ? 'left' : $side;
 		$q=$database->proceedQuery("SELECT * FROM `#prefix#_blocks` WHERE status='on' AND place='".$side."' ORDER by `pos`");
 		if(!$database->isError())
 		{
@@ -199,18 +231,17 @@ class uinterface
 				}
 				$result=$html->render_blocks($data);
 				
-			}else{
-				$result="Блоков нет :(....";
 			}
-		}else{
-			$result="Ошибка диалога с БД!";
 		}
 		return $result;
 	}
 	public function buildMenu($place)
 	{
+		// InheritsSection: {
 		$database=$GLOBALS['database'];
 		$html=$GLOBALS['html'];
+		// };
+		
 		$res=array();
 		$q=$database->getRows('menu','*',array('place'=>$place,'status'=>'on'));
 		while($row=$database->fetchQuery($q)){
@@ -219,20 +250,10 @@ class uinterface
 		$result=$html->renderMenu($place,$res);
 		return $result;
 	}
-	public function getMarquee($count){
-		$database=&$GLOBALS['database'];
-		$html=&$GLOBALS['html'];
-		$q=$database->proceedQuery("SELECT * FROM `#prefix#_catalog` WHERE status='on' LIMIT 0,".intval($count));
-		$data=null;
-		if(!$database->isError())
-		{
-			if($database->getNumrows($q)!=0)
-			{
-				while($row=$database->fetchQuery($q)){$data[]=$row;}
-			}
-		}
-		return (($data)?$html->renderMarquee($data):$data);
-	}
+	
+	
+	# Change this function to present current user site path
+	
 	public function getCatalogPath($curr_cat,$recursive=false)
 	{
 		$database=&$GLOBALS['database'];
@@ -262,11 +283,17 @@ class uinterface
 			return"<a href='/' style='font-size:18px;color:#000000;text-decoration:none;'><strong>Главная</strong></a>";
 		}
 	}
+	
 	public function getPubFeed($count=5,$related=null)
 	{
-		$result=null;
+		// InheritsSection: {
 		$tools=&$GLOBALS['tools'];
 		$database=&$GLOBALS['database'];
+		// };
+		
+		#FIX: `code` -> `presentation` 
+		
+		$result=null;
 		$related=($related)?"AND keywords LIKE '%".$related."% ":'';
 		$q=$database->proceedQuery("SELECT * FROM `#prefix#_pages` WHERE type='pub' AND status='on' ".$keywords." ORDER BY `pub_date` ASC LIMIT 0,".(($count!=0)?$count:5));
 		if(!$database->isError())
@@ -274,20 +301,9 @@ class uinterface
 			if($database->getNumrows($q)!=0)
 			{
 				while($row=$database->fetchQuery($q))
-				{
-					$title=$tools->decodeString($row['title']);
-					$description=$tools->decodeString($row['description']);
-					$result.="<div class='item' style='margin-bottom:3px;display:block;text-align:left;'>
-						<strong>".date("d.m.Y",$row['pub_date'])."</strong> - <a href='/articles/".substr(md5($row['id']),0,6)."' style='text-decoration:none;' title='Читать \"".$title."\"' ><strong style='color:#0000AA;'>".$title."</strong></a><br/>
-						".$description."
-						<a href='/articles/".substr(md5($row['id']),0,6)."' style='margin:0;padding:0;text-align:left;display:block;text-decoration:none;' title='Читать \"".$title."\"'><strong style='border:0px dotted #000000;border-bottom-width:2px;'>Читать далее</strong></a>
-					</div>";
-				}
-			}else{
-				$result='Публикации не найдены';
+				{}
+				$result=$html->renderPubFeed($row);
 			}
-		}else{
-			$result='Ошибка во время диалога с БД!';
 		}
 		return $result;
 	}

@@ -61,14 +61,10 @@ class tools{
 	}
 
 
-	public function getGoodID($hash,$hash_length)
-	{
-		$database=&$GLOBALS['database'];
-		return $database->getSQLParameter("catalog","id",array("LEFT(MD5(id),".$hash_length.")"=>$hash));
-	}
-
 	public function translit($str,$way=1)
 	{
+		#FIX: need to provide work with dictionaries 
+		
 		$dict=array("щ"=>"sch","ш"=>"sh","ц"=>"ts","ч"=>"ch","я"=>"ya","ю"=>"yu","й"=>"yi","ё"=>"yo",
 		"а"=>"a","б"=>"b","в"=>"v","г"=>"g","д"=>"d","e"=>"ye",
 		"ж"=>"j","з"=>"z","и"=>"i","к"=>"k","л"=>"l","м"=>"m",
@@ -144,7 +140,6 @@ class tools{
 			foreach($data as $k=>$v){
 				if(!is_array($v)){
 					$data[$k]=$this->decodeString($data[$k]);
-					# print($v.'::'.rawurlencode($v).'::'.rawurldecode(rawurlencode($v)).'<br/>');
 				}else{
 					$data[$k]=$this->decodeArrayData($v);
 				}
@@ -160,7 +155,6 @@ class tools{
 				if(!is_array($v) && !in_array(md5($v),$ready)){
 					$ready[]=md5($v);
 					$data[$k]=rawurlencode($v);
-					# print($v.'::'.rawurlencode($v).'::'.rawurldecode(rawurlencode($v)).'<br/>');
 				}else{
 					$data[$k]=$this->encodeArrayData($v);
 				}
@@ -191,50 +185,11 @@ class tools{
 		return $size;
 	}
 
-	public function pasteDateForm()
-	{
-		$this->temp['_data']="<Table>";
-		$this->temp['_data'].="<tr><td>";
-		$this->temp['_data'].="<select name=\"d\">";
-		for($i=31;$i>=1;$i--){
-			$this->temp['_data'].="<option value=\"".$i."\"";
-			if($i==date("d")){
-				$this->temp['_data'].="selected";
-			}
-			$this->temp['_data'].=">".$i."</option>";
-		}
-		$this->temp['_data'].="</select></td>";
-		$this->temp['_data'].="<td>";
-		$this->temp['_data'].="<select name=\"m\">";
-		for($i=12;$i>=1;$i--){
-			$this->temp['_data'].="<option value=\"".$i."\"";
-			if($i==date("m")){
-				$this->temp['_data'].= "selected";
-			}
-			$this->temp['_data'].=">".$i."</option>";
-		}
-		$this->temp['_data'].="</select></td>";
-		$this->temp['_data'].="<td>";
-		$this->temp['_data'].="<select name=\"y\">";
-		for($i=2039;$i>=1940;$i--){
-			$this->temp['_data'].="<option ";
-			if($i==date("Y")){
-				$this->temp['_data'].="selected";
-			}
-			$this->temp['_data'].=" value=\"".$i."\">".$i."</option>";
-		}
-		$this->temp['_data'].="</select>";
-		$this->temp['_data'].="</td></tr>";
-		$this->temp['_data'].="</table>";
-		return $this->temp['_data'];
-	}
-
 	public function getFiles($start_dir='.') {
 		$files = array();
 		if (is_dir($start_dir)) {
 			$fh = opendir($start_dir);
 			while (($file = readdir($fh)) !== false) {
-				# loop through the files, skipping . and .., and recursing if necessary
 				if (strcmp($file, '.')==0 || strcmp($file, '..')==0) continue;
 				$filepath = $start_dir . '/' . $file;
 				if ( is_dir($filepath) )
@@ -244,7 +199,6 @@ class tools{
 			}
 			closedir($fh);
 		} else {
-			# false if the function was called with an invalid non-directory argument
 			$files = false;
 		}
 
@@ -263,7 +217,6 @@ class tools{
 			if(array_search('datasource',$data)==-1 || array_search('value',$data)==-1 || array_search('label',$data)==-1){
 				$result=false;
 			}else{
-				#die_r($where);
 				$q=$database->getRows($data['datasource'],array($data['value'],$data['label']),($where)?$data['where']:1);
 				if(!$database->isError() && $database->getNumrows($q)!=0){
 					$result='';
@@ -272,11 +225,6 @@ class tools{
 							break;
 						case 'select':
 							$result.='<select name="'.$name.'" style="width:100%;font-size:13px;font-weight:bold;">';
-							/**die_r($params);
-							if($params['default'])
-							{
-								$result.="<option value='".$params['default']."'></option>";
-							}**/
 							$result.="<option value='-1'>&nbsp;</option>";
 							while(false!==($row=$database->fetchQuery($q))){
 								$s=(is_array($select) && array_key_exists("value",$select) && $select['value']==$row[$data['value']])?"selected":"";
@@ -312,6 +260,8 @@ class tools{
 	public function postfetchProceed($data,$wrappers=null)
 	{
 		$sape_client=&$GLOBALS['sape_client'];
+		
+		#FIX: provide work with wrrapers
 		if(preg_match_all("/\[advertising\:([0-9]*)\]/",$data,$matches))
 		{
 				for($i=0;$i<count($matches[1]);$i++)
