@@ -15,7 +15,4 @@
 #    along with InvisCMS.  If not, see <http://www.gnu.org/licenses/>.
 ?>
 <?php
-include "./lib/core/others/init.php";
-$ga=new googleauth();
-$ga->sendLoginRequest("GOOGLE","LoRd1990@gmail.com","nikelin1990","cl");
 ?>

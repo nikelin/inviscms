@@ -14,12 +14,6 @@
 #    You should have received a copy of the GNU General Public License
 #    along with InvisCMS.  If not, see <http://www.gnu.org/licenses/>.
 ?><?php
-$config=simplexml_load_file('./config.xml');
-if(!$config){
-	die("Please as first start 'install.php' script !");
-}else{
-	$GLOBALS['path_to_site']=$config->param[0]['value'];
-}
 include "./lib/core/others/init.php";
 $api->init();
 header("Content-Type:application/xml;charset=".$api->getCharset());
