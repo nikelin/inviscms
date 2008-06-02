@@ -3,4 +3,3 @@ Disallow: /images
 Disallow: /lib
 Allow: /
 Disallow: /admin
-
