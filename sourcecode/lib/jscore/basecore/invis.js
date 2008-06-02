@@ -52,14 +52,6 @@ Invis.prototype.help={
 }
 
 
-/**
-* START_OF_MODULE
-* {UNFINISHED MODULE}
-*
-* Execution denied!
-* K.Karpenko
-*/
-
 Invis.prototype.modules={
 	current_data:null,
 	current_path:null,
@@ -128,11 +120,6 @@ Invis.prototype.modules={
 		}
 	}
 };
-
-/**
-* END_OF_MODULE
-*/
-
 
 
 Invis.prototype.core={
@@ -425,18 +412,8 @@ Invis.prototype.core={
 
 Invis.prototype.tools={
 	libs: [],
-	curr_tpl:1,
-	curr_label:1,
-	curr_x: 0,
-	curr_y: 0,
 	frms: [],
 	frm_fields: [],
-	curr_width: 100,
-	curr_height:100,
-	currFontSize:14,
-	previewScript: 'previews.php',
-	currenciesCost: {uah:{cost:1},usd:{cost:5.01},gbp:{cost:9.5}},
-	baseCurrency: 'uah',
 	setLang:function(value){
 		document.cookie="lang="+value;
 		return true;
@@ -535,67 +512,6 @@ Invis.prototype.tools={
 		}
 		return false;
 	},
-	setLoadingProgress: function(bool)
-	{
-		var loading=document.createElement("div");
-		document.getElementById('body').style.display="none";
-		loading.setAttribute('style','width:100%;height:100%;')
-		loading.setAttribute("innerHTML","Loading in progress!");
-	},
-	getCurrencyCost: function(amount){
-		return (amount*this.currenciesCost[this.baseCurrency]['cost']);
-	},
-	changeBaseCurrency: function(currency){
-		var baseCurrencyCost=this.currenciesCost[currency]['cost'];
-		var toBaseCost=1/baseCurrencyCost;
-		for(var i in this.currenciesCost){
-			this.currenciesCost[i]['cost']=this.currenciesCost[i]['cost']*toBaseCost;
-		}
-		this.baseCurrency=currency;
-	},
-	cutAC: function(num,count){
-		var d=num.toString();
-		d=d.split('.');
-		if(d.length<1){
-			return num;
-		}else{
-			var ac=d[0];
-			if(count>ac.length){
-				return(d[0]+'.'+d[1]);
-			}else{
-				return(d[0]+'.'+d[1].slice(0,count));
-			}
-		}
-	},
-	updatePrice: function(amount,id,currency){
-		var el=document.getElementById(id);
-		if(el){
-			if(this.baseCurrency!=currency){
-				amount=this.cutAC(this.currenciesCost[currency]['cost']*amount,1);
-			}
-			el.innerHTML=amount;
-			el.innerHTML+=this.currenciesCost[this.baseCurrency]['cost'];
-		}else{
-			alert('Internal system error !(#401)');
-		}
-	},
-	zoomText: function(p){
-		var size=this.currFontSize*p;
-		document.getElementById('body').style.fontSize=size;
-	} ,
-	whyDangerous: function(){
-		alert("Потому что здесь:\n");
-		alert("1. Ваш IP сохраняется, и если вы не администратор - вас НАЙДУТ !\n");
-		alert("2. Вся система построена на принципах обнаружения и обработки попыток взлома системы безопасности\n");
-		alert("3. Если вы всё-таки хакер, то даже если вас и не привлекут к ответственности, вам будет закрыт доступ к более чем 10% сайтов Ру и Юа -нета.")
-		alert("Что ещё ? Разное ведь бывает ;)");
-		var x=window.confirm("Вы получили ответ на свой вопрос (говорите \"Да\" :) ) ?",1,0);
-		if(x){
-			alert("Вот и славно :)");
-		}else{
-			Invis.tools.loadPage("admin","need_to_translate");
-		}
-	},
 	loadLib: function(type,src,place,after_load){
 	  switch(type){
 	      case 'css':
@@ -622,97 +538,9 @@ Invis.prototype.tools={
 	  		document.getElementById(place).appendChild(lib);
 	  }
 	},
-	selectTemplate: function(id){
-		if(Invis.core.DOM.isExists(id)){
-			this.changeElVis("configTemplate","switch");
-			this.changeElVis("templates","switch");
-			var tmpl=document.getElementById('templateSx');
-			if(tmpl){
-				this.curr_tpl=id;
-				this.curr_x=0;
-				this.curr_y=0;
-				this.curr_width=100;
-				this.curr_height=100;
-				document.getElementById('parm5').value=this.curr_tpl;
-				var coords=JSON.stringify({x:this.curr_x,y:this.curr_y,width:this.curr_width,height:this.curr_height});
-				tmpl.src='/previews.php?type=previews&t='+this.curr_tpl+'&l='+this.curr_label+'&coords='+coords;
-			}
-		}
-	},
-	moveLabel: function(type,dir){
-		var tmpl=document.getElementById('templateSx');
-		if(tmpl){
-			switch(type)
-			{
-				case 'plus':
-				if(dir=='x')
-				this.curr_x+=10;
-				else
-				this.curr_y+=10;
-				break;
-				case 'minus':
-				if(dir=='x')
-				this.curr_x-=10;
-				else
-				this.curr_y-=10;
-				break;
-			}
-			document.getElementById('parm1').value=this.curr_x;
-			document.getElementById('parm2').value=this.curr_y;
-			var coords=JSON.stringify({x:this.curr_x,y:this.curr_y,width:this.curr_width,height:this.curr_height});
-			tmpl.src='/previews.php?type=preview&t='+this.curr_tpl+'&l='+this.curr_label+'&coords='+coords;
-		}
-	},
-	imagePreload: function(container,url)
-	{
-		var el=document.getElementById(container);
-		if(el)
-		{
-			this.changeElVis(container,"switch");
-			if (el.childNodes.length == 1) {
-				var area = document.createElement('img');
-				area.setAttribute("width",150);
-				area.setAttribute("height",90);
-				area.setAttribute("src",url);
-				el.appendChild(area);
-			}
-		}
-	},
-	resizeLabel: function(type,dir)
-	{
-		var tmpl=document.getElementById('templateSx');
-		switch(type)
-		{
-			case 'plus':
-			if(dir=='width')
-			this.curr_width+=4;
-			else
-			this.curr_height+=4;
-			break;
-			case 'minus':
-			if(dir=='width')
-			this.curr_width-=4;
-			else
-			this.curr_height-=4;
-			break;
-		}
-		document.getElementById('parm3').value=this.curr_width;
-		document.getElementById('parm4').value=this.curr_height;
-		var coords=JSON.stringify({x:this.curr_x,y:this.curr_y,width:this.curr_width,height:this.curr_height});
-		tmpl.src='/previews.php?type=preview&t='+this.curr_tpl+'&l='+this.curr_label+'&coords='+coords;
-	},
-	applyLabel: function(id){
-		var tmpl=document.getElementById('templateSx');
-		if(tmpl){
-			this.curr_label=id;
-			document.getElementById('parm6').value=this.curr_label;
-			var coords=JSON.stringify({x:this.curr_x,y:this.curr_y,width:this.curr_width,height:this.curr_height});
-			tmpl.src='/previews.php?type=preview&t='+this.curr_tpl+'&l='+this.curr_label+'&coords='+coords;
-		}
-	},
+	
 	changeElVis:function(id,type){
 		if (Invis.core.DOM.isExists(id)) {
-			//FIX IT ! Strings error
 			var el = document.getElementById(id);
 			switch (type) {
 				case 'on':

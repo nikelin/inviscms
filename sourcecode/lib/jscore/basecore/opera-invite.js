@@ -1,1 +1,0 @@
-document.getElementById('opera-invite').innerHTML="Лучше всего наc смотреть используя интернет-браузер Opera 9.5! (<a href='http://www.opera.com/download/?ver=9.50b2' title='Скачать браузер Opera 9.5 для более комфортного просмотра сайта !'>Скачать</a>)";
