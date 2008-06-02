@@ -1,0 +1,14 @@
+#summary Разделение "код" - > "представление"
+#labels Featured,Phase-Design,Phase-Implementation
+
+= Обзор =
+
+Для воплощения разделения реализации системы на "код" и "представление" применяется связка XML + XSLT.
+[http://inviscms.googlecode.com/files/code-ui-div.png]
+
+
+= Детали =
+
+{{{
+//.. Статья не завершена
+}}}
