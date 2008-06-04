@@ -10,6 +10,7 @@
 = Детали =
 
 Абстракция класса на PHP:
+{{{
 <?php
 abstract class xmldoc
 {
@@ -97,6 +98,7 @@ abstract class xmldoc
         public function OutputEST(){}
 }
 ?>
+}}}
 
 Для иницализации документа XML, используется функция xmldoc::startdoc(), к которой можно обратиться лишь единожды, после чего она становится недоступной.
 
